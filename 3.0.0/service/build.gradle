@@ -1,0 +1,52 @@
+buildscript {
+	repositories { jcenter() }
+}
+
+apply plugin: 'java'
+
+def vertxVersion = '3.0.0'
+
+version = '1.0.0'
+
+sourceCompatibility = 1.8 
+targetCompatibility = 1.8 
+
+if (!JavaVersion.current().java8Compatible) {
+	throw new IllegalStateException('''A Haiku:
+										|	This needs Java 8,
+										|	You are using something else,
+										|	Refresh. Try again.'''.stripMargin())
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		url = 'http://oss.sonatype.org/content/repositories/snapshots/'
+	}
+	jcenter()
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	compile 'io.vertx:vertx-core:' + vertxVersion
+	compile 'io.vertx:vertx-web:' + vertxVersion
+	compile 'io.vertx:vertx-codetrans:' + vertxVersion
+	compile 'io.vertx:vertx-codegen:' + vertxVersion
+	compile 'io.vertx:vertx-docgen:' + vertxVersion
+	compile 'io.vertx:vertx-service-proxy:' + vertxVersion
+	compile 'io.vertx:vertx-service-factory:' + vertxVersion
+	compile 'io.vertx:vertx-unit:' + vertxVersion
+	testCompile 'junit:junit:4.12'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.5'
+}
+
+test {
+	testLogging.showStandardStreams = true
+	testLogging {
+		exceptionFormat = 'full'
+	}
+}

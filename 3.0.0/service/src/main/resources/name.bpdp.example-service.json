@@ -1,0 +1,8 @@
+{
+  "main": "name.bpdp.example.ExampleServiceVerticle",
+  "options": {
+    "config": {
+      "address": "vertx.example"
+    }
+  }
+}
