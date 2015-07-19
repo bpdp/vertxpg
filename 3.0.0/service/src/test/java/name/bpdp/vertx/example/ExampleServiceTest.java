@@ -1,4 +1,4 @@
-package name.bpdp.example;
+package name.bpdp.vertx.example;
 
 import io.vertx.codetrans.annotations.CodeTranslate;
 import io.vertx.core.Vertx;
@@ -28,7 +28,7 @@ public class ExampleServiceTest {
 		JsonObject config = new JsonObject().put("address", "mycomputer.mynetwork");
 		DeploymentOptions depOptions = new DeploymentOptions().setConfig(config);
 
-		vertx.deployVerticle("service:name.bpdp.example-service", depOptions, res -> {
+		vertx.deployVerticle("service:name.bpdp.vertx.example-service", depOptions, res -> {
 			if (res.succeeded()) {
 				System.out.println("Start service - succeed");
 			} else {

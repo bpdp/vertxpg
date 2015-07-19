@@ -3,3 +3,5 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /other-authors/
 /3.0.0/service/.gradle/
+/3.0.0/service/build/
+/3.0.0/service/.vertx/
