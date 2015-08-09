@@ -2,6 +2,6 @@
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
 /other-authors/
-/3.0.0/service/.gradle/
-/3.0.0/service/build/
-/3.0.0/service/.vertx/
+/3.0.0/vertx-service-template/.gradle/
+/3.0.0/vertx-service-template/build/
+/3.0.0/vertx-service-template/.vertx/

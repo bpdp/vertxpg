@@ -1,41 +1,37 @@
 buildscript {
 	repositories { jcenter() }
+	dependencies {
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 def vertxVersion = '3.0.0'
-
+//def vertxVersion = '3.0.0-SNAPSHOT'
 version = '1.0.0'
 
 sourceCompatibility = 1.8 
 targetCompatibility = 1.8 
 
 if (!JavaVersion.current().java8Compatible) {
-	throw new IllegalStateException('''A Haiku:
-										|	This needs Java 8,
-										|	You are using something else,
-										|	Refresh. Try again.'''.stripMargin())
+    throw new IllegalStateException("This needs Java 8. You are using ${JavaVersion.current()}.")
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'name.bpdp.vertx'
-            artifactId 'example-service'
+            artifactId 'changeme-service'
             version '1.0.0'
             from components.java
         }
     }
 }
 
-
 repositories {
 	mavenCentral()
-	maven {
-		url = 'http://oss.sonatype.org/content/repositories/snapshots/'
-	}
+	maven { url 'http://oss.sonatype.org/content/repositories/snapshots/' }
 	jcenter()
 	mavenCentral()
 	mavenLocal()
@@ -50,6 +46,7 @@ dependencies {
 	compile 'io.vertx:vertx-service-proxy:' + vertxVersion
 	compile 'io.vertx:vertx-service-factory:' + vertxVersion
 	compile 'io.vertx:vertx-unit:' + vertxVersion
+    testCompile 'io.vertx:vertx-unit:' + vertxVersion
 	testCompile 'junit:junit:4.12'
 }
 

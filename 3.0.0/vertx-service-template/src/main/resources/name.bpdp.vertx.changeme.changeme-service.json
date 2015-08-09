@@ -1,0 +1,8 @@
+{
+  "main": "name.bpdp.vertx.changeme.ChangemeServiceVerticle",
+  "options": {
+    "config": {
+      "address": "vertx.changeme"
+    }
+  }
+}

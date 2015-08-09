@@ -1,4 +1,4 @@
-package name.bpdp.vertx.example;
+package name.bpdp.vertx.changeme;
 
 import io.vertx.codetrans.annotations.CodeTranslate;
 import io.vertx.core.Vertx;
@@ -17,18 +17,20 @@ import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.DeploymentOptions;
 
+import name.bpdp.vertx.changeme.ChangemeServiceVerticle;
+
 @RunWith(VertxUnitRunner.class)
-public class ExampleServiceTest {
+public class ChangemeServiceTest {
 
 	Vertx vertx = Vertx.vertx();
 
 	@Before
 	public void before(TestContext context) {
 
-		JsonObject config = new JsonObject().put("address", "mycomputer.mynetwork");
+		JsonObject config = new JsonObject().put("address", "vertx.changeme");
 		DeploymentOptions depOptions = new DeploymentOptions().setConfig(config);
 
-		vertx.deployVerticle("service:name.bpdp.vertx.example-service", depOptions, res -> {
+		vertx.deployVerticle("service:name.bpdp.vertx.changeme.changeme-service", depOptions, res -> {
 			if (res.succeeded()) {
 				System.out.println("Start service - succeed");
 			} else {
@@ -54,6 +56,5 @@ public class ExampleServiceTest {
 		String s = "value2";
 		context.assertEquals("value2", s);
 	}
-
 
 }
