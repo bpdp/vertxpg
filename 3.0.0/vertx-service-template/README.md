@@ -1,21 +1,33 @@
-Vert.x Blazegraph Service
-=========================
+Template for Vertx Service
+==========================
 
-This service provides an asynchronous interface around Blazegraph.
+This is a skeleton / template that can be used to speed up vertx service creation.
 
-Before use this service, place it into Maven local repo using this task:
+Build:
+
+```
+$ gradle build
+```
+
+Test:
+
+```
+$ gradle test
+```
+
+Publish to local maven repo:
 
 ```
 $ gradle publishToMavenLocal
 ```
 
-If you want to use this service from Maven local, use this in your dependencies part of your `build.gradle` file:
+Gradle dependencies:
 
 ```
 dependencies {
     ...
     ...
-    compile 'name.bpdp.vertx:blazegraph-service:1.0.0'
+    compile 'name.bpdp.vertx.changeme:changeme-service:1.0.0'
     ...
     ...
 }
