@@ -30,5 +30,6 @@ public interface ChangemeService {
     }
 
     // Actual service operations here...
-    void method1 (String method1Arg);
+    void method1 (String method1Arg, Handler<AsyncResult<Void>> resultHandler);
+
 }

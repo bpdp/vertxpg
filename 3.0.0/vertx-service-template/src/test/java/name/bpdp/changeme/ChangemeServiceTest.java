@@ -11,11 +11,13 @@ import io.vertx.ext.unit.junit.VertxUnitRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.DeploymentOptions;
+import io.vertx.core.eventbus.DeliveryOptions;
 
 import name.bpdp.vertx.changeme.ChangemeServiceVerticle;
 
@@ -38,6 +40,7 @@ public class ChangemeServiceTest {
 			}
 		});
 
+
 	}
 
 	@After
@@ -46,15 +49,15 @@ public class ChangemeServiceTest {
 	}
 
 	@Test
-	public void test1(TestContext context) {
-		String s = "value1";
-		context.assertEquals("value1", s);
-	}
+	public void testMethod1(TestContext context) {
 
-	@Test
-	public void test2(TestContext context) {
-		String s = "value2";
-		context.assertEquals("value2", s);
+       // Create a proxy
+        ChangemeService service = ChangemeService.createProxy(vertx, "vertx.changeme");
+
+        // Save some data in the database - this time using the proxy
+        service.method1("uhui", res2 -> {
+            assertTrue(res2.succeeded());
+        });
 	}
 
 }

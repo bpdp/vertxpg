@@ -1,6 +1,8 @@
 package name.bpdp.vertx.changeme.impl;
 
 import io.vertx.core.Vertx;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 import io.vertx.serviceproxy.ProxyHelper;
 import name.bpdp.vertx.changeme.ChangemeService;
 
@@ -22,10 +24,8 @@ public class ChangemeServiceImpl implements ChangemeService {
 
     // Actual service operations here...
 
-	public void method1 (String method1Arg) {
-		
-		System.out.println("method1 inside Changeme service running, arg => " + method1Arg);
-
+	public void method1 (String method1Arg, Handler<AsyncResult<Void>> resultHandler) {
+		System.out.println(method1Arg + " pocessed!");
 	}
 
 }
